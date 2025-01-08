@@ -28,13 +28,10 @@ Dropped irrelevant columns (e.g., Cabin, due to a high percentage of missing val
 import pandas as pd
 import matplotlib.pyplot as plt
 from datasets import load_dataset
-
-
 # Loading Data
 train_data = pd.read_csv('/Users/xiongyihan/Desktop/python_data analyst/Raw_data/train.csv')
 test_data = pd.read_csv('/Users/xiongyihan/Desktop/python_data analyst/Raw_data/test.csv')
 test_data = pd.read_csv('/Users/xiongyihan/Desktop/python_data analyst/Raw_data/test.csv')
-
 # Data Cleanup
 train_data.head()
 train_data.isnull().sum()
@@ -73,6 +70,10 @@ plt.xlabel('Passenger Class')
 plt.ylabel('Survival Rate')
 plt.show()
 ```
+### Results
+
+![image](https://github.com/user-attachments/assets/dd9d24a0-3e3d-4a2e-9618-86e5723607d6)
+
 1st class passengers had the highest survival rate, while 3rd class passengers had the lowest, reflecting socio-economic disparities.
 
 ## 2. How does gender influence survival rates?
@@ -87,6 +88,11 @@ plt.xlabel('Gender')
 plt.ylabel('Survival Rate')
 plt.show()
 ```
+## Results
+
+![image](https://github.com/user-attachments/assets/280d71a5-8ea1-44f4-9e44-d872972dbb03)
+
+
 Females had a significantly higher survival rate than males, emphasizing the "women and children first" policy.
 
 ## 3. How do ticket prefixes reflect socio-economic factors, and what impact do these factors have on survival rates?
@@ -110,14 +116,19 @@ plt.xlabel('Ticket Prefix')
 plt.ylabel('Survival Rate')
 plt.xticks(rotation=45)
 plt.show()
-
-
 sns.barplot(data=filtered_ticket_survival, y='TicketPrefix', x='Survived', order=filtered_ticket_survival.sort_values('Survived', ascending=False)['TicketPrefix'])
 plt.title('Survival Rates by Ticket Prefix')
 plt.xlabel('Survival Rate')
 plt.ylabel('Ticket Prefix')
 plt.show()
 ```
+## Results
+
+
+![image](https://github.com/user-attachments/assets/2a5ad7fe-5ca5-44cd-827d-7af69120bb03)
+
+![image](https://github.com/user-attachments/assets/0ae85c8d-1c08-4da3-8c77-0f4425a40fdf)
+
 Certain ticket prefixes (e.g., PC, indicating wealthier passengers) had higher survival rates, while others (e.g., STONO) showed lower survival rates, reflecting socio-economic disparities among passengers.
 
 ## 4. Does fare distribution vary across passenger classes?
@@ -128,6 +139,11 @@ plt.xlabel('Passenger Class')
 plt.ylabel('Fare')
 plt.show()
 ```
+## Results
+
+![image](https://github.com/user-attachments/assets/57f90091-5a15-4105-8fcc-2341ed5c3204)
+
+
 1st class passengers paid significantly higher fares, highlighting the wealth disparity between classes.
 
 ## 5. What is the relationship between fare and survival?
@@ -139,6 +155,11 @@ plt.xlabel('Fare')
 plt.ylabel('Survived (0 = No, 1 = Yes)')
 plt.show()
 ```
+## Results
+
+![image](https://github.com/user-attachments/assets/aaa015e0-8056-4df4-af44-d8c776bda1f2)
+
+
 Passengers who paid higher fares generally had better survival chances, reinforcing the connection between socio-economic status and survival.
 
 ## 6. What Are the Survival Trends by Embarkation Port?
@@ -151,6 +172,12 @@ plt.pie(embarked_sizes, labels=embarked_labels, autopct='%1.1f%%', startangle=14
 plt.title('Survival Rates by Embarkation Port')
 plt.show()
 ```
+
+## Results
+
+![image](https://github.com/user-attachments/assets/f2100667-e23b-431c-a9a7-882a4fd93152)
+
+
 Passengers embarking from C had the highest survival rate, suggesting potential socio-economic differences by embarkation point.
 
 # What I learned 
